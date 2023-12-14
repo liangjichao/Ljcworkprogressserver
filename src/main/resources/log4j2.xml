@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">%-d{yyyy-MM-dd HH:mm:ss}[ %t:%r ] - [%-5p] %c-%M:%L - %m%n%throwable{full}</Property>
+        <Property name="APP_LOG_ROOT">/Users/liangjichao/Downloads</Property>
+        <Property name="log_level">INFO</Property>
+        <property name="log_size">50 MB</property>
+        <property name="log_file_count">50</property>
+        <property name="encoding">UTF-8</property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <RollingFile name="appLog"
+                     fileName="${APP_LOG_ROOT}/app.log"
+                     filePattern="${APP_LOG_ROOT}/app-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout charset="${encoding}" pattern="${LOG_PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="${log_size}" />
+            </Policies>
+            <DefaultRolloverStrategy max="${log_file_count}" />
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <AsyncLogger name="com.jdl.wps" level="${log_level}" additivity="false">
+            <appender-ref ref="appLog" />
+            <appender-ref ref="Console" />
+        </AsyncLogger>
+
+        <Root level="debug">
+            <appender-ref ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>

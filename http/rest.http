@@ -1,0 +1,40 @@
+###
+POST http://localhost/wps/list
+Content-Type: application/json
+
+{
+  "userCode": "liangjichao",
+  "cpage": 1,
+  "pageSize": 50
+}
+
+
+###
+POST http://localhost/wps/insert
+Content-Type: application/json
+
+{
+
+  "userCode": "liangjichao",
+  "cardUrl": "card_2610dbd56dd9",
+  "progressStatus": 0,
+  "startTime": "2023-10-11 00:00:00",
+  "endTime": "2023-10-12 23:59:59",
+  "projectName": "projectName_7b9a97305c62",
+  "prd": "prd_2c96f87f4f06",
+  "productManager": "productManager_c3f8b6387407",
+  "devBranchName": "devBranchName_c001371b694a",
+  "appVersion": "appVersion_91b498663f7b",
+  "devInfo": "devInfo_fcc76eb2b912"
+}
+
+###
+POST http://localhost/wps/delete/2
+Content-Type: application/json
+###
+POST http://localhost/wps/info/15
+Content-Type: application/json
+
+###
+POST http://10.170.221.91:8899/wps/holiday/202310
+Content-Type: application/json
